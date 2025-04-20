@@ -17,11 +17,6 @@ public class DemoApplication implements CommandLineRunner {
 	}
 	@Override
 	public void run(String... args) throws Exception {
-		Patient patient = patientRepo.findById(1L).orElse(null);
-		if (patient != null) {
-			System.out.println(patient);  // Affiche le patient
-		} else {
-			System.out.println("Patient non trouvé");
-		}
+
 	}
 }

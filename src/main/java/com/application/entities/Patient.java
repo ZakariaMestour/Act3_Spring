@@ -14,7 +14,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 import java.util.Date;
 
-@Entity @AllArgsConstructor @NoArgsConstructor @Builder @Data
+@Entity @AllArgsConstructor @NoArgsConstructor @Builder
 public class Patient {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
@@ -46,4 +46,35 @@ public class Patient {
                 ", malade=" + malade + '}';
     }
 
+    public Long getId() {
+        return id;
+    }
+
+    public @NotEmpty @Size(min = 2, max = 15) String getFirstName() {
+        return firstName;
+    }
+
+    public @NotEmpty @Size(min = 2, max = 15) String getLastName() {
+        return lastName;
+    }
+
+    public @NotEmpty @Pattern(regexp = "Male|Female", message = "Gender must be either 'Male' or 'Female'") String getGender() {
+        return gender;
+    }
+
+    public @Pattern(regexp = "^0(6|5|7)\\d{8}$\n") String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public @Email String getEmail() {
+        return email;
+    }
+
+    public Date getBirthDate() {
+        return birthDate;
+    }
+
+    public @NotEmpty Boolean getMalade() {
+        return malade;
+    }
 }
